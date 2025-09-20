@@ -72,13 +72,13 @@ CREATE TABLE student_hobbies
 CREATE TABLE student_favorite_courses
 (
     student_id              int     NOT NULL,
-    course_1_id             int     NULL,
-    course_2_id             int     NULL,
-    course_3_id             int     NULL,
+    favorite_course_1_id             int     NULL,
+    favorite_course_2_id             int     NULL,
+    favorite_course_3_id             int     NULL,
     CONSTRAINT student_favorite_courses_pk PRIMARY KEY (student_id),
-    CONSTRAINT student_favorite_courses_course_1_fk FOREIGN KEY (course_1_id) REFERENCES course (id),
-    CONSTRAINT student_favorite_courses_course_2_fk FOREIGN KEY (course_2_id) REFERENCES course (id),
-    CONSTRAINT student_favorite_courses_course_3_fk FOREIGN KEY (course_3_id) REFERENCES course (id),
-    CONSTRAINT student_favorite_courses_course_uk UNIQUE (course_1_id, course_2_id, course_3_id),
+    CONSTRAINT student_favorite_courses_favorite_course_1_fk FOREIGN KEY (favorite_course_1_id) REFERENCES course (id),
+    CONSTRAINT student_favorite_courses_favorite_course_2_fk FOREIGN KEY (favorite_course_2_id) REFERENCES course (id),
+    CONSTRAINT student_favorite_courses_favorite_course_3_fk FOREIGN KEY (favorite_course_3_id) REFERENCES course (id),
+    CONSTRAINT student_favorite_courses_favorite_course_uk UNIQUE (favorite_course_1_id, favorite_course_2_id, favorite_course_3_id),
     CONSTRAINT student_favorite_courses_student_id_fk FOREIGN KEY (student_id) REFERENCES student (id)
 );
