@@ -51,11 +51,10 @@ CREATE TABLE student
 
 CREATE TABLE answer
 (
-    id                      int     NOT NULL,
+    student_id              int     NOT NULL,
     engineering_definition  text    NOT NULL,
     data_definition         text    NOT NULL,
-    student_id              int     NOT NULL,
-    CONSTRAINT answer_pk PRIMARY KEY (id),
+    CONSTRAINT answer_pk PRIMARY KEY (student_id),
     CONSTRAINT answer_student_id_fk FOREIGN KEY (student_id) REFERENCES student (id)
 );
 
