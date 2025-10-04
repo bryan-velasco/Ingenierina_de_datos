@@ -1,6 +1,7 @@
 USE ING_DATOS;
 
 CREATE TABLE STUDENT_DATA_RAW (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     edad VARCHAR(50),
     lugar_nacimiento VARCHAR(100),
