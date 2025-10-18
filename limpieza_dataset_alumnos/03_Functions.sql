@@ -142,4 +142,36 @@ BEGIN
     RETURN CONCAT(IFNULL(district, ''), '|', IFNULL(state, ''));
 END$$
 
+
+CREATE FUNCTION clean_workplace(workplace TEXT)
+RETURNS TEXT
+DETERMINISTIC
+BEGIN
+    DECLARE cleaned TEXT;
+
+    IF workplace IS NULL THEN
+        RETURN NULL;
+    END IF;
+
+    
+    SET cleaned = REGEXP_REPLACE(workplace, '(?i)Trabajo en\\s*', '');
+
+    SET cleaned = REGEXP_REPLACE(cleaned, '(?i)una consultora llamada\\s*', '');
+
+    
+    SET cleaned = TRIM(SUBSTRING_INDEX(
+        REGEXP_REPLACE(cleaned, '(?i)\\s+en\\s+', ' en '), 
+        ' en ', 1
+    ));
+    SET cleaned = TRIM(SUBSTRING_INDEX(cleaned, ',', 1));
+    SET cleaned = TRIM(SUBSTRING_INDEX(cleaned, '(', 1));
+
+    IF cleaned = '' THEN
+        RETURN NULL;
+    END IF;
+
+    RETURN cleaned;
+END$$
+
+
 DELIMITER ;
