@@ -1,0 +1,5 @@
+crear archivos:
+    * 02-create-tables-oracle.sql
+    * 03-create-tables-mysql.sql
+    * 06-carga-oracle.py
+    * 07-carga-mysql.py

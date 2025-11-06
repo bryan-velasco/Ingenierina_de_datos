@@ -1,4 +1,5 @@
 -- Script to create tables for example data quality checks
+-- Para postgreSQL para la limpieza con python
 
 CREATE TABLE course
 (

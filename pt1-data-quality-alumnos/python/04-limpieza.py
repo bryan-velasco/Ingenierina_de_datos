@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import re
 
-df = pd.read_csv('DatosExamen.csv')
+df = pd.read_csv('../data-sets/DatosExamen.csv')
 
 df = df.rename(columns={'Nombre': 'name'})
 
@@ -487,4 +487,4 @@ for col in ['favorite_course_1', 'favorite_course_2', 'favorite_course_3']:
 # Drop the original '3 Materias Favoritas' column
 df = df.drop(columns=['3 Materias Favoritas'])
 
-df.to_csv('DatosExamen_Limpio.csv', index=False)
+df.to_csv('../data-sets/DatosExamen-limpio-python-script.csv', index=False)
