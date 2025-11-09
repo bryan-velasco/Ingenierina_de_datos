@@ -1,0 +1,19 @@
+##################
+Usuarios:
+    * Host: 12345
+    * Postgres: admin:admin123
+    * Oracle: sys/admin123
+    * MySQL: sys:admin123
+
+##################
+Comandos:
+    * iniciar contenedores:
+        * cd <ruta proyecto>
+        * docker compose start
+    * detener contenedores:
+        * cd <ruta proyecto>
+        * docker compose stop
+    * entrar al contenedor de postgres: dockerPostgres
+    * entrar al contenedor de oracle: dockerOracle
+    * entrar al contenedor de MySQL: dockerMySQL
+
