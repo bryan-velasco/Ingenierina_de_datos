@@ -1,6 +1,6 @@
 USE ING_DATOS;
 
-INSERT INTO state_mapping (key_name, normalized_name)
+INSERT INTO STATE_MAPPING (key_name, normalized_name)
 VALUES
 ('CDMX', 'Ciudad de México'),
 ('D.F', 'Ciudad de México'),

@@ -19,7 +19,7 @@ BEGIN
     SET clean_location = REPLACE(clean_location, ',Veracruz', ', Veracruz');
 
     SELECT sm.normalized_name INTO result
-    FROM state_mapping sm
+    FROM STATE_MAPPING sm
     WHERE clean_location LIKE CONCAT('%', sm.key_name, '%')
     LIMIT 1;
 
@@ -99,7 +99,7 @@ BEGIN
 
     SELECT sm.normalized_name, sm.key_name
     INTO found_state, found_key
-    FROM state_mapping sm
+    FROM STATE_MAPPING sm
     WHERE loc_clean LIKE CONCAT('%', LOWER(sm.key_name), '%')
     LIMIT 1;
 
