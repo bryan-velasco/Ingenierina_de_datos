@@ -1,7 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 
-df = pd.read_csv('../data-sets/datos-examen-limpio-python-script.csv')
+df = pd.read_csv('../data-sets/DatosExamen-limpio-python-script.csv.csv')
 
 course_list = pd.unique(df[['favorite_course_1', 'favorite_course_2', 
                                  'favorite_course_3']].values.ravel())
@@ -76,7 +76,7 @@ student_favorite_courses = pd.merge(student_favorite_courses, course[['id', 'nam
 student_favorite_courses = student_favorite_courses.rename(columns={'id': 'favorite_course_3_id'})
 student_favorite_courses.drop(columns=['favorite_course_3', 'name'], inplace=True)
 
-engine = create_engine('postgresql://postgres:usuario@localhost:5432/data_quality')
+engine = create_engine('postgresql://admin:admin123@localhost:5432/data_quality')
 
 course.to_sql(
     'course',
