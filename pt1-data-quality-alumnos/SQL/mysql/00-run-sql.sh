@@ -1,6 +1,9 @@
 #!/bin/bash
 # Para ejecutar debidamente este script, este debe existir en el mismo nivel que los scripts .sql.
 # Además también es necesario darle permisos de ejecución con: chmod +x 00-run-sql.sh
+# En caso de que se requiera eliminar todo para regresar al estado inicial,
+# basta con ejecutar: docker exec -i mysql_db mysql -uroot < "01_DataBaseInit.sql.rollback"
+
 
 CONTAINER="mysql_db"
 MYSQL_USER="root"
