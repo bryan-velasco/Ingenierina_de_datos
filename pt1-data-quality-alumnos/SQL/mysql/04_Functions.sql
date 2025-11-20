@@ -19,7 +19,7 @@ BEGIN
     SET clean_location = REPLACE(clean_location, ',Veracruz', ', Veracruz');
 
     SELECT sm.normalized_name INTO result
-    FROM state_mapping sm
+    FROM STATE_MAPPING sm
     WHERE clean_location LIKE CONCAT('%', sm.key_name, '%')
     LIMIT 1;
 
@@ -99,7 +99,7 @@ BEGIN
 
     SELECT sm.normalized_name, sm.key_name
     INTO found_state, found_key
-    FROM state_mapping sm
+    FROM STATE_MAPPING sm
     WHERE loc_clean LIKE CONCAT('%', LOWER(sm.key_name), '%')
     LIMIT 1;
 
@@ -171,6 +171,77 @@ BEGIN
     END IF;
 
     RETURN cleaned;
+END$$
+
+
+CREATE FUNCTION number_of_residents(input_text TEXT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+  DECLARE txt_lower TEXT;
+  DECLARE num INT;
+  DECLARE match_somos TEXT;
+  DECLARE match_contandome TEXT;
+  DECLARE extracted_num INT;
+  DECLARE result INT;
+
+  SET txt_lower = LOWER(TRIM(input_text));
+
+  SET num = CAST(REGEXP_SUBSTR(txt_lower, '[0-9]+') AS SIGNED);
+
+  SET match_somos = REGEXP_SUBSTR(txt_lower, 'somos[[:space:]]*[0-9]+');
+  SET match_contandome = REGEXP_SUBSTR(txt_lower, '[0-9]+[[:space:]]*personas[[:space:]]*contandome');
+
+  IF match_somos IS NOT NULL THEN
+    SET extracted_num = CAST(REGEXP_SUBSTR(match_somos, '[0-9]+') AS SIGNED);
+  ELSEIF match_contandome IS NOT NULL THEN
+    SET extracted_num = CAST(REGEXP_SUBSTR(match_contandome, '[0-9]+') AS SIGNED);
+  ELSE
+    SET extracted_num = NULL;
+  END IF;
+
+  SET result = CASE
+    WHEN txt_lower LIKE '%vivo solo%' OR txt_lower LIKE '%nadie%' THEN 1
+    WHEN extracted_num IS NOT NULL THEN extracted_num
+    WHEN num IS NOT NULL THEN num + 1
+    ELSE 1
+  END;
+
+  IF result < 1 THEN
+    SET result = 1;
+  END IF;
+
+  RETURN result;
+END$$
+
+
+CREATE FUNCTION normalize_course_name(course_raw TEXT)
+RETURNS TEXT
+DETERMINISTIC
+BEGIN
+  DECLARE c TEXT;
+  SET c = LOWER(TRIM(course_raw));
+
+  IF c REGEXP 'admin[.]? de servicios de internet' THEN RETURN 'Administración de Servicios de Internet';
+  ELSEIF c REGEXP 'administración de proyectos' THEN RETURN 'Administración de Proyectos de Software';
+  ELSEIF c REGEXP 'bases de datos distribuidas' THEN RETURN 'Bases de Datos Distribuidas';
+  ELSEIF c REGEXP 'bases de datos [(]todas[)]' THEN RETURN 'Bases de Datos';
+  ELSEIF c REGEXP 'bases de datos' OR c REGEXP '\\bbd\\b' THEN RETURN 'Bases de Datos';
+  ELSEIF c REGEXP 'cálculo y geo' OR c REGEXP 'calculo y geometria analitica' THEN RETURN 'Cálculo y Geometría Analítica';
+  ELSEIF c REGEXP 'cálculo vectorial' THEN RETURN 'Cálculo Vectorial';
+  ELSEIF c REGEXP 'minería de datos' THEN RETURN 'Minería de Datos';
+  ELSEIF c REGEXP 'estadística' THEN RETURN 'Fundamentos de Estadística';
+  ELSEIF c REGEXP 'poo' THEN RETURN 'Programación Orientada a Objetos';
+  ELSEIF c REGEXP 'redes de datos seguras' OR c REGEXP 'cisco' THEN RETURN 'Redes de Datos Seguras';
+  ELSEIF c REGEXP 'sistemas distribuidos' THEN RETURN 'Sistemas Distribuidos';
+  ELSEIF c REGEXP 'sistemas operativos' THEN RETURN 'Sistemas Operativos';
+  ELSEIF c REGEXP 'estructura de datos' THEN RETURN 'Estructura de Datos y Algoritmos I';
+  ELSEIF c REGEXP 'eda2' THEN RETURN 'Estructura de Datos y Algoritmos II';
+  ELSEIF c REGEXP 'dispositivos' THEN RETURN 'Dispositivos Electrónicos';
+  ELSEIF c REGEXP 'lenguajes autómatas' THEN RETURN 'Lenguajes y Autómatas';
+  ELSEIF c REGEXP 'taller socio' THEN RETURN 'Taller Sociohumanístico - Liderazgo';
+  ELSE RETURN CONCAT(UCASE(LEFT(c,1)), SUBSTRING(c,2)); -- Capitaliza si no hay match
+  END IF;
 END$$
 
 

@@ -50,7 +50,14 @@ WITH
 			TRIM(REGEXP_SUBSTR(REPLACE(REPLACE(hobbies, ' y ', ', '), ' Y ', ', '), '[^,]+', 1, 2)) AS hobbie_2,
 			TRIM(REGEXP_SUBSTR(REPLACE(REPLACE(hobbies, ' y ', ', '), ' Y ', ', '), '[^,]+', 1, 3)) AS hobbie_3
 		FROM STUDENT_DATA_RAW
-	)
+	),
+	number_of_residents_cleaned AS (SELECT id, number_of_residents(con_cuantos_vivo) AS number_of_residents FROM STUDENT_DATA_RAW),
+	favorite_course_cleaned AS (SELECT
+		id,
+		normalize_course_name(TRIM(SUBSTRING_INDEX(materias_favoritas, ',', 1))) AS favorite_course_1,
+		normalize_course_name(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(materias_favoritas, ',', 2), ',', -1))) AS favorite_course_2,
+		normalize_course_name(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(materias_favoritas, ',', 3), ',', -1))) AS favorite_course_3
+	FROM STUDENT_DATA_RAW)
 	
 SELECT
 	NC.id,
@@ -69,7 +76,11 @@ SELECT
 	FAC.favorite_artist,
 	HC.hobbie_1,
 	HC.hobbie_2,
-	HC.hobbie_3
+	HC.hobbie_3,
+	NORC.number_of_residents,
+	FCC.favorite_course_1,
+	FCC.favorite_course_2,
+	FCC.favorite_course_3
 FROM name_cleaned NC
 INNER JOIN edad_cleaned EC USING (ID)
 INNER JOIN state_of_birth_cleaned SOBC USING (ID)
@@ -84,3 +95,5 @@ INNER JOIN engineering_definition_cleaned EDC USING (ID)
 INNER JOIN data_definition_cleaned DDC USING (ID)
 INNER JOIN favorite_artist_cleaned FAC USING (ID)
 INNER JOIN hobbies_cleaned HC USING (ID)
+INNER JOIN number_of_residents_cleaned NORC USING (ID)
+INNER JOIN favorite_course_cleaned FCC USING (ID)
