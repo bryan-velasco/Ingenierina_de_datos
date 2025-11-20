@@ -1,11 +1,9 @@
 #!/bin/bash
+# Para ejecutar debidamente este script, este debe existir en el mismo nivel que los scripts .sql.
+# Además también es necesario darle permisos de ejecución con: chmod +x 00-run-sql.sh
 
-# Nombre del contenedor con MySQL
 CONTAINER="mysql_db"
-
-# Usuario y contraseña definidos para el MySQL
-MYSQL_USER="sys"
-MYSQL_PASS="admin123"
+MYSQL_USER="root"
 
 echo "Ejecutando scripts SQL dentro del contenedor '$CONTAINER'..."
 echo ""
@@ -16,9 +14,8 @@ for file in *.sql; do
     [ -e "$file" ] || continue
     
     echo "Ejecutando: $file"
-
     docker exec -i $CONTAINER \
-        mysql -u"$MYSQL_USER" -p"$MYSQL_PASS" < "$file"
+        mysql -u"$MYSQL_USER" < "$file"
 
     if [ $? -ne 0 ]; then
         echo " Error ejecutando '$file'. Deteniendo proceso."
