@@ -1,5 +1,8 @@
--- Script to create tables for example data quality checks
--- Para postgreSQL para la limpieza con python
+\set AUTOCOMMIT on
+CREATE DATABASE data_quality WITH OWNER = admin ENCODING 'UTF8' TEMPLATE template1;
+
+-- Cambiar automáticamente a la nueva base
+\connect data_quality;
 
 CREATE TABLE course
 (
