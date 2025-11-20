@@ -1,9 +1,9 @@
 #!/bin/bash
-# Este script debe ejecutarse al mismo nivel donde se tenga el script ##
-# También es necesario darle permisos con: chmod +x 00-python-env.sh.sh
+# Este script debe ejecutarse al mismo nivel donde se tenga el script 01-limpieza-spark.ipynb
+# También es necesario darle permisos con: chmod +x 00-python-env.sh
 # Al finalizar se contará con el ambiente virtual creado,
-# pero en caso de querer activarlo después se realizará con: source venv/bin/activate
-# Con el ambiente activado ahora si se puede ejecutar el script: python3 02-limpieza.py
+# pero en caso de querer activarlo después se realizará con: source venv_spark/bin/activate
+# Con el ambiente activado ahora si se puede abrir el notebook: jupyter lab 01-limpieza-spark.ipynb
 
 echo "Iniciando instalación de ambiente..."
 
