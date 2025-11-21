@@ -1,0 +1,17 @@
+{
+  "description" : "Carga y limpieza de datos usando hop",
+  "company" : "UNAM",
+  "department" : "ingenieria de datos",
+  "metadataBaseFolder" : "${PROJECT_HOME}/metadata",
+  "unitTestsBasePath" : "${PROJECT_HOME}",
+  "dataSetsCsvFolder" : "${PROJECT_HOME}/datasets",
+  "enforcingExecutionInHome" : true,
+  "parentProjectName" : "default",
+  "config" : {
+    "variables" : [ {
+      "name" : "DATA_DIR",
+      "value" : "C:/Users/bryan.velasco/Documents/repo_ing_de_datos/Ingenierina_de_datos/pt1-data-quality-alumnos/data-sets",
+      "description" : "Ruta al directorio con los data sets"
+    } ]
+  }
+}
