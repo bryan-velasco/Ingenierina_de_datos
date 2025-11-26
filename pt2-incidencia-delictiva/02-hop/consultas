@@ -1,0 +1,17 @@
+select 
+(select count(*) from estado) as estado,
+(select count(*) from bien_afectado) as bien_afectado,
+(select count(*) from tipo_delito) as tipo_delito,
+(select count(*) from subtipo_delito) as subtipo_delito,
+(select count(*) from modalidad) as modalidad,
+(select count(*) from indice_estatal_delito) as indice_estatal_delito;
+
+
+select i.id_indice_estatal_delito, i.fecha_delito, i.incidencia_delictiva, e.entidad as estado, ba.descripcion as bien_afectado, td.descripcion as tipo_delito, sd.descripcion as subtipo_delito, m.descripcion as modalidad
+from indice_estatal_delito i
+join estado e on i.id_estado=e.id_estado
+join bien_afectado ba on i.id_bien_afectado=ba.id_bien_afectado
+join tipo_delito td on i.id_tipo_delito=td.id_tipo_delito
+join subtipo_delito sd on i.id_subtipo_delito=sd.id_subtipo_delito
+join modalidad m on i.id_modalidad=m.id_modalidad;
+
