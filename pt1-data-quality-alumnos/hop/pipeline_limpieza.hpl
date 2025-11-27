@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline>
+  <info>
+    <name>pipeline_limpieza</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user>-</created_user>
+    <created_date>2025/11/20 16:38:55.174</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2025/11/20 16:38:55.174</modified_date>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>Carga CSV Datos Examen</from>
+      <to>Limpieza con JS (etapa 1)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Limpieza con JS (etapa 1)</from>
+      <to>Limpieza con JS (etapa 2)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Limpieza con JS (etapa 2)</from>
+      <to>Salida a CSV</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>Carga CSV Datos Examen</name>
+    <type>CSVInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>${DATA_DIR}/DatosExamen.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <schemaDefinition/>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding>UTF-8</encoding>
+    <fields>
+      <field>
+        <name>Nombre</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>35</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Edad</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Lugar_de_Nacimiento</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>28</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Promedio</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>21</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Fecha_de_Nacimiento</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>21</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Donde_Vivo</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>31</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Trabajo</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>10</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Donde_Trabajo</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>58</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Semestre</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>28</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Ingenieria</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>135</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Dato</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>157</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Artista_Favorito</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>38</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>hobbies_3</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>64</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Con_cuantos_vivo</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>32</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Materias_Favoritas_3</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>83</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>112</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Limpieza con JS (etapa 1)</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>cleaning</jsScript_name>
+        <jsScript_script>// Objeto utilitario que encapsula funciones y objetos privadas
+var utils = {
+    state_mapping: {
+        "CDMX": "Ciudad de México",
+        "D.F": "Ciudad de México",
+        "Ciudad de México": "Ciudad de México",
+        "Edo. Méx": "Estado de México",
+        "Estado de México": "Estado de México",
+        "Veracruz": "Veracruz",
+        "Oaxaca": "Oaxaca",
+        "Hidalgo": "Hidalgo"
+    },
+    edad_cleaning: function(){
+        var edad_limpia = "";
+        if (Edad != null &amp;&amp; Edad != "") {
+            edad_limpia = Edad.replace(/[^0-9]/g, "");
+            if (edad_limpia !== "") {
+                return parseInt(edad_limpia, 10);
+            }
+        }
+        return null;
+    },
+	extract_and_normalize_state: function(location){
+        if (location == null || location === "") {
+            return null;
+        }
+
+        var loc = location
+            .replace("Nací en ", "")
+            .replace(", antes D.F", "")
+            .replace("México D.F -> ", "")
+            .replace(",Veracruz", ", Veracruz");
+
+        var parts = loc.split(",");
+
+        for (var i = 0; i &lt; parts.length; i++) {
+            var part = parts[i].trim();
+
+            for (var key in utils.state_mapping) {
+                if (part.indexOf(key) !== -1) {
+                    return utils.state_mapping[key];
+                }
+            }
+        }
+
+        return null;
+    },
+	promedio_cleaning: function(promedio_raw){
+        if (promedio_raw == null || promedio_raw === "") {
+            return null;
+        }
+
+        var s = promedio_raw.toString();
+
+        s = s.replace(",", ".");
+
+        var match = s.match(/(\d+\.?\d*)/);
+
+        if (!match)
+            return null; // si no encuentra número
+
+        var numero = parseFloat(match[1]);
+
+        if (isNaN(numero))
+            return null;
+
+        return numero;
+    }
+};
+
+var edad_cleaned = utils.edad_cleaning();
+var state_cleaned = utils.extract_and_normalize_state(Lugar_de_Nacimiento);
+var promedio_cleaned = utils.promedio_cleaning(Promedio);</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>edad_cleaned</name>
+        <rename>edad_cleaned</rename>
+        <type>Integer</type>
+        <length>3</length>
+        <precision>0</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>state_cleaned</name>
+        <rename>state_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>promedio_cleaned</name>
+        <rename>promedio_cleaned</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Limpieza con JS (etapa 2)</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Cleaning</jsScript_name>
+        <jsScript_script>var utils = {
+
+  dates: {
+    parseSpanishDate: function(dateStr) {
+      if (dateStr == null) return null;
+      var s = String(dateStr).trim();
+      if (s === "") return null;
+
+      // quitar "de", "del" aislados
+      s = s.replace(/\bde\b/gi, " ");
+      s = s.replace(/\bdel\b/gi, " ");
+      s = s.replace(/\s+/g, " ").trim().toLowerCase();
+
+      // mapa de meses españoles -> número
+      var monthMapNum = {
+        "enero": 1, "febrero": 2, "marzo": 3, "abril": 4,
+        "mayo": 5, "junio": 6, "julio": 7, "agosto": 8,
+        "septiembre": 9, "setiembre": 9, "octubre": 10,
+        "noviembre": 11, "diciembre": 12,
+        "ene": 1, "feb": 2, "mar": 3, "abr": 4,
+        "may": 5, "jun": 6, "jul": 7, "ago": 8,
+        "sep": 9, "oct": 10, "nov": 11, "dic": 12
+      };
+
+      // Intentar formato: dd / mm / yyyy  (mm puede ser número o palabra)
+      var re = /(\d{1,2})[\/\s\-]+([0-9]{1,2}|[a-záéíóúñ]+)[\/\s\-]+(\d{4})/i;
+      var m = s.match(re);
+      if (!m) {
+        // intento alternativo: "8 octubre 2002" sin slashes pero con espacios
+        var re2 = /(\d{1,2})\s+([0-9]{1,2}|[a-záéíóúñ]+)\s+(\d{4})/i;
+        m = s.match(re2);
+        if (!m) {
+          return null; // si no matchea ningún patrón
+        }
+      }
+
+      var day = parseInt(m[1], 10);
+      var monthPart = m[2];
+      var year = parseInt(m[3], 10);
+      var month;
+
+      if (/^\d+$/.test(monthPart)) {
+        month = parseInt(monthPart, 10);
+      } else {
+        var ml = monthPart.toLowerCase();
+        month = monthMapNum[ml];
+      }
+
+      if (!month || isNaN(day) || isNaN(year)) {
+        return null;
+      }
+
+      // construir fecha como string ISO "YYYY-MM-DD"
+      function pad2(n) { return (n &lt; 10 ? "0" : "") + n; }
+      var iso = year + "-" + pad2(month) + "-" + pad2(day);
+      return iso;
+    }
+
+  },
+
+  geo: {
+
+    stateMapping: {
+      "CDMX": "Ciudad de México",
+      "D.F": "Ciudad de México",
+      "Ciudad de México": "Ciudad de México",
+      "Edo. Méx": "Estado de México",
+      "Estado de México": "Estado de México",
+      "Veracruz": "Veracruz",
+      "Oaxaca": "Oaxaca",
+      "Hidalgo": "Hidalgo"
+      // puedes agregar más mappings si lo necesitas
+    },
+
+    knownPairsWithoutComma: {
+      "tizayuca hidalgo": { district: "Tizayuca", state: "Hidalgo" }
+      // agrega otros si es necesario
+    },
+
+    // Recibe la cadena tipo "Donde Vivo"
+    // Devuelve un objeto { district: ..., state: ... }
+    extractDistrictAndState: function(location) {
+      if (location == null) {
+        return { district: null, state: null };
+      }
+      var loc = String(location)
+        .replace("En ", "")
+        .replace(", vivo solo", "")
+        .replace("Coyoacan", "Coyoacán")
+        .trim();
+
+      if (loc === "") {
+        return { district: null, state: null };
+      }
+
+      var district = null;
+      var state = null;
+
+      // 1) pares específicos sin coma
+      var lowerLoc = loc.toLowerCase();
+      for (var pair in this.knownPairsWithoutComma) {
+        if (lowerLoc.indexOf(pair) !== -1) {
+          var info = this.knownPairsWithoutComma[pair];
+          return { district: info.district, state: info.state };
+        }
+      }
+
+      // 2) separación por comas
+      var rawParts = loc.split(",");
+      var parts = [];
+      for (var i = 0; i &lt; rawParts.length; i++) {
+        var p = rawParts[i].trim();
+        if (p !== "") parts.push(p);
+      }
+
+      // 3) buscar estado usando stateMapping con coincidencias por palabra
+      var foundStateIndex = -1;
+      outer:
+      for (var i2 = 0; i2 &lt; parts.length; i2++) {
+        var part = parts[i2];
+        for (var key in this.stateMapping) {
+          var escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&amp;");
+          var re = new RegExp("\\b" + escapedKey + "\\b", "i");
+          if (re.test(part)) {
+            state = this.stateMapping[key];
+            foundStateIndex = i2;
+            break outer;
+          }
+        }
+      }
+
+      // 4) district antes del estado
+      if (state != null &amp;&amp; foundStateIndex > 0) {
+        var districtParts = parts.slice(0, foundStateIndex);
+        if (districtParts.length > 0) {
+          district = districtParts[districtParts.length - 1];
+        }
+      }
+
+      // 5) casos especiales (Coyoacán, Benito Juárez, Chimalhuacán)
+      if (loc.indexOf("Coyoacán") !== -1) {
+        district = "Coyoacán";
+        state = "Ciudad de México";
+      }
+      if (loc.indexOf("Benito Juárez") !== -1) {
+        district = "Benito Juárez";
+        state = "Ciudad de México";
+      } else if (loc.indexOf("Chimalhuacán") !== -1) {
+        district = "Chimalhuacán";
+        state = "Estado de México";
+      }
+
+      // 6) si no hay estado pero sí partes, tomar el primero como distrito
+      if (state == null &amp;&amp; parts.length > 0) {
+        district = parts[0];
+      }
+
+      return { district: district, state: state };
+    }
+
+  },
+
+  work: {
+
+    trabajoMapping: {
+      "Si": true,
+      "Sí": true,
+      "si": true,
+      "sí": true,
+      "No": false,
+      "no": false,
+      "No trabajo": false,
+      "no trabajo": false
+    },
+
+    mapTrabajoFlag: function(valor) {
+      if (valor == null) return null;
+      var s = String(valor).trim();
+      if (this.trabajoMapping.hasOwnProperty(s)) {
+        return this.trabajoMapping[s];
+      }
+      return null;
+    },
+
+    // Limpieza de "Dónde Trabajo"
+    cleanWorkplace: function(workplace) {
+      if (workplace == null) return null;
+      var s = String(workplace);
+
+      // quitar "Trabajo en", "trabajo en", etc.
+      s = s.replace(/Trabajo en\s*/gi, "");
+      // quitar "una consultora llamada"
+      s = s.replace(/una consultora llamada\s*/gi, "");
+
+      // split por coma, paréntesis o " en " como palabra
+      var parts = s.split(/,|\(|\s+en\s+/i);
+      if (parts.length > 0) {
+        s = parts[0].trim();
+      } else {
+        s = s.trim();
+      }
+
+      if (s === "") return "Null";
+      return s;
+    }
+
+  },
+
+  semester: {
+
+    extractSemester: function(semesterStr) {
+      if (semesterStr == null) return null;
+      var s = String(semesterStr).toLowerCase();
+
+      if (s.indexOf("ya debería haber terminado") !== -1 ||
+          s.indexOf("ya deberia haber terminado") !== -1) {
+        return 11;
+      }
+
+      if (s.indexOf("noveno") !== -1) {
+        return 9;
+      } else if (s.indexOf("onceavo") !== -1 || s.indexOf("11vo") !== -1) {
+        return 11;
+      }
+
+      var nums = s.match(/\d+/g);
+      if (nums &amp;&amp; nums.length > 0) {
+        var val = parseInt(nums[0], 10);
+        if (!isNaN(val)) {
+          return (val > 10) ? 11 : val;
+        }
+      }
+
+      return null;
+    },
+
+    // Aplicar regla final: si > 10 => 11
+    normalizeSemesterNumeric: function(value) {
+      if (value == null) return null;
+      var v = Number(value);
+      if (isNaN(v)) return null;
+      return (v > 10) ? 11 : v;
+    }
+
+  },
+
+  hobbies: {
+
+    hobbyNormalization: {
+      "Escuchar musica": "Escuchar música",
+      "Escuchar musica ": "Escuchar música",
+      "Ver peliculas": "Ver películas"
+      // agrega más si quieres
+    },
+
+    normalizeHobbyText: function(text) {
+      if (text == null) return null;
+      var normalized = String(text);
+      for (var original in this.hobbyNormalization) {
+        var normalizedVal = this.hobbyNormalization[original];
+        var escaped = original.replace(/[.*+?^${}()|[\]\\]/g, "\\$&amp;");
+        var re = new RegExp(escaped, "gi");
+        normalized = normalized.replace(re, normalizedVal);
+      }
+      return normalized;
+    },
+
+    customCapitalize: function(s) {
+      if (typeof s === "string" &amp;&amp; s.length > 0 &amp;&amp; s.charAt(0) === s.charAt(0).toLowerCase()) {
+        return s.charAt(0).toUpperCase() + s.slice(1);
+      }
+      return s;
+    },
+
+    // Recibe el texto completo de "3 hobbies", normaliza y devuelve objeto {h1,h2,h3}
+    splitHobbies: function(text) {
+      if (text == null) {
+        return { h1: null, h2: null, h3: null };
+      }
+      var s = this.normalizeHobbyText(String(text));
+      var parts = s.split(/,|\s+y\s+/i);
+      var clean = [];
+      for (var i = 0; i &lt; parts.length; i++) {
+        var p = parts[i].trim();
+        if (p !== "") {
+          clean.push(this.customCapitalize(p));
+        }
+      }
+      while (clean.length &lt; 3) {
+        clean.push(null);
+      }
+      return {
+        h1: clean[0],
+        h2: clean[1],
+        h3: clean[2]
+      };
+    }
+
+  },
+
+  residents: {
+
+    extractNumberOfResidents: function(residentStr) {
+      if (residentStr == null) return null;
+      var s = String(residentStr).toLowerCase();
+
+      if (s.indexOf("vivo solo") !== -1 || s.indexOf("nadie") !== -1) {
+        return 1;
+      }
+
+      // "X personas contandome" o "somos Y"
+      var totalMatch = s.match(/(\d+)\s*personas contandome|\s*somos\s*(\d+)/);
+      if (totalMatch) {
+        var g1 = totalMatch[1];
+        var g2 = totalMatch[2];
+        var n = g1 ? parseInt(g1, 10) : parseInt(g2, 10);
+        if (!isNaN(n)) return n;
+      }
+
+      // cualquier número, sumando 1 (la persona misma)
+      var nums = s.match(/\d+/g);
+      if (nums &amp;&amp; nums.length > 0) {
+        var base = parseInt(nums[0], 10);
+        if (!isNaN(base)) {
+          return 1 + base;
+        }
+      }
+
+      return null;
+    },
+
+    // Aplica mínimo 1
+    ensureMinOne: function(value) {
+      if (value == null) return null;
+      var v = Number(value);
+      if (isNaN(v)) return null;
+      return (v &lt; 1) ? 1 : v;
+    }
+
+  },
+
+  courses: {
+
+    validCourses: [
+      "Bases de Datos Distribuidas",
+      "Minería de Datos",
+      "Taller Sociohumanístico - Liderazgo",
+      "Diseño Digital Moderno",
+      "Bases de Datos",
+      "Álgebra",
+      "Programación Orientada a Objetos (POO)",
+      "Cálculo y Geometría Analítica",
+      "Administración de Servicios de Internet",
+      "Fundamentos de Estadística",
+      "Administración de Proyectos de Software",
+      "Sistemas Distribuidos",
+      "Cálculo Vectorial",
+      "Estructura de Datos y Algoritmos I",
+      "Estructura de Datos y Algoritmos II",
+      "Dispositivos Electrónicos",
+      "Sistemas de Comunicaciones",
+      "Sistemas Operativos",
+      "Redes de Datos Seguras",
+      "Lenguajes Formales y Autómatas"
+    ],
+
+    // Se inicializa más abajo
+    courseNormalization: null,
+
+    initCourseNormalization: function() {
+      if (this.courseNormalization != null) return;
+      var map = {};
+      // base: cada curso en minúsculas -> curso exacto
+      for (var i = 0; i &lt; this.validCourses.length; i++) {
+        var c = this.validCourses[i];
+        map[c.toLowerCase()] = c;
+      }
+      // variaciones
+      map["bases de datos"] = "Bases de Datos";
+      map["algebra"] = "Álgebra";
+      map["poo"] = "Programación Orientada a Objetos (POO)";
+      map["cálculo y geo."] = "Cálculo y Geometría Analítica";
+      map["admin. de servicios de internet"] = "Administración de Servicios de Internet";
+      map["estadística"] = "Fundamentos de Estadística";
+      map["administración de proyectos"] = "Administración de Proyectos de Software";
+      map["estructura de datos y algoritmos"] = "Estructura de Datos y Algoritmos I";
+      map["dispositivos"] = "Dispositivos Electrónicos";
+      map["cálculo y geometría analítica"] = "Cálculo y Geometría Analítica";
+      map["sistemas de comunicaciones"] = "Sistemas de Comunicaciones";
+      map["sistemas operativos"] = "Sistemas Operativos";
+      map["redes de datos seguras"] = "Redes de Datos Seguras";
+      map["eda2"] = "Estructura de Datos y Algoritmos II";
+      map["bd"] = "Bases de Datos";
+      map["cisco"] = "Redes de Datos Seguras";
+      map["cálculo y geometriía analítica"] = "Cálculo y Geometría Analítica";
+      map["diseño digial moderno"] = "Diseño Digital Moderno";
+      map["taller socio-humanístico: liderazgo"] = "Taller Sociohumanístico - Liderazgo";
+      map["bases de datos (todas)"] = "Bases de Datos";
+      map["sistemas de comunicaciones. sistemas operativos"] = "Sistemas de Comunicaciones";
+      map["calculo y geometria analitica"] = "Cálculo y Geometría Analítica";
+      map["calculo y geometría analítica"] = "Cálculo y Geometría Analítica";
+
+      this.courseNormalization = map;
+    },
+
+    normalizeCourse: function(courseStr) {
+      if (courseStr == null) return null;
+      this.initCourseNormalization();
+      var s = String(courseStr).trim().toLowerCase();
+      return this.courseNormalization[s] || null;
+    },
+
+    // helpers regex (equivalentes a los de Python)
+    yWordRe: /\by\b/gi,
+    fallbackPatternWithY: /\s*(?:,|\.|\by\b)\s*/gi,
+    punctSplitPattern: /[.,;|/]+/g,
+
+    splitOnLastY: function(s) {
+      if (s == null) return null;
+      var str = String(s);
+      var matches = [];
+      var m;
+      var re = /\by\b/gi;
+      while ((m = re.exec(str)) !== null) {
+        matches.push({ index: m.index, length: m[0].length });
+      }
+      if (matches.length === 0) return null;
+      var last = matches[matches.length - 1];
+      var left = str.substring(0, last.index).trim();
+      var right = str.substring(last.index + last.length).trim();
+      if (left === "" || right === "") return null;
+      return [left, right];
+    },
+
+    splitFavsImproved: function(value) {
+      if (value == null) {
+        return ["", "", ""];
+      }
+      var s = String(value).trim();
+      if (s === "") {
+        return ["", "", ""];
+      }
+
+      // 1) split por comas
+      var partsComma = [];
+      var tmp = s.split(",");
+      for (var i = 0; i &lt; tmp.length; i++) {
+        var p = tmp[i].trim();
+        if (p !== "") partsComma.push(p);
+      }
+
+      var parts;
+      if (partsComma.length === 4) {
+        parts = partsComma.slice(0, 3);
+      } else if (partsComma.length >= 3) {
+        parts = partsComma.slice(0, 3);
+      } else if (partsComma.length === 2) {
+        var rhs = partsComma[1];
+        var rhsByPunct = [];
+        var t2 = rhs.split(this.punctSplitPattern);
+        for (var j = 0; j &lt; t2.length; j++) {
+          var p2 = t2[j].trim();
+          if (p2 !== "") rhsByPunct.push(p2);
+        }
+        if (rhsByPunct.length >= 2) {
+          parts = [partsComma[0]].concat(rhsByPunct);
+        } else {
+          var lastSplit = this.splitOnLastY(rhs);
+          if (lastSplit) {
+            parts = [partsComma[0], lastSplit[0], lastSplit[1]];
+          } else {
+            var partsRe = [];
+            var t3 = s.split(this.fallbackPatternWithY);
+            for (var k = 0; k &lt; t3.length; k++) {
+              var p3 = t3[k].trim();
+              if (p3 !== "") partsRe.push(p3);
+            }
+            parts = (partsRe.length >= 3) ? partsRe.slice(0, 3) : partsRe;
+          }
+        }
+      } else {
+        // sin comas
+        var partsPunct = [];
+        var t4 = s.split(this.punctSplitPattern);
+        for (var l = 0; l &lt; t4.length; l++) {
+          var p4 = t4[l].trim();
+          if (p4 !== "") partsPunct.push(p4);
+        }
+        if (partsPunct.length >= 3) {
+          parts = partsPunct.slice(0, 3);
+        } else if (partsPunct.length === 2) {
+          var firstTry = this.splitOnLastY(partsPunct[0]);
+          if (firstTry) {
+            parts = [firstTry[0], firstTry[1], partsPunct[1]];
+          } else {
+            var secondTry = this.splitOnLastY(partsPunct[1]);
+            if (secondTry) {
+              parts = [partsPunct[0], secondTry[0], secondTry[1]];
+            } else {
+              parts = partsPunct;
+            }
+          }
+        } else {
+          var partsRe2 = [];
+          var t5 = s.split(this.fallbackPatternWithY);
+          for (var z = 0; z &lt; t5.length; z++) {
+            var p5 = t5[z].trim();
+            if (p5 !== "") partsRe2.push(p5);
+          }
+          parts = (partsRe2.length >= 3) ? partsRe2.slice(0, 3) : partsRe2;
+        }
+      }
+
+      // aseguramos 3 elementos
+      if (!parts) parts = [];
+      if (parts.length > 3) {
+        parts = parts.slice(0, 3);
+      }
+      while (parts.length &lt; 3) {
+        parts.push("");
+      }
+      return parts;
+    }
+  }
+};
+
+
+var date_of_birth_cleaned = utils.dates.parseSpanishDate(Fecha_de_Nacimiento);
+
+var geoResult = utils.geo.extractDistrictAndState(Donde_Vivo);
+var current_district_cleaned = geoResult.district;
+var current_state_cleaned   = geoResult.state;
+
+var is_working_cleaned = utils.work.mapTrabajoFlag(Trabajo);
+
+var workplace_cleaned = utils.work.cleanWorkplace(Donde_Trabajo);
+
+var semester_raw = utils.semester.extractSemester(Semestre);
+var semester_cleaned = utils.semester.normalizeSemesterNumeric(semester_raw);
+
+var hobbiesRes = utils.hobbies.splitHobbies(hobbies_3);
+var hobby_1_cleaned = hobbiesRes.h1;
+var hobby_2_cleaned = hobbiesRes.h2;
+var hobby_3_cleaned = hobbiesRes.h3;
+
+var residents_raw = utils.residents.extractNumberOfResidents(Con_cuantos_vivo);
+var number_of_residents_cleaned = utils.residents.ensureMinOne(residents_raw);
+
+// Materias favoritas
+var favs = utils.courses.splitFavsImproved(Materias_Favoritas_3);
+var favorite_course_1_cleaned = utils.courses.normalizeCourse(favs[0]);
+var favorite_course_2_cleaned = utils.courses.normalizeCourse(favs[1]);
+var favorite_course_3_cleaned = utils.courses.normalizeCourse(favs[2]);
+
+
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>date_of_birth_cleaned</name>
+        <rename>date_of_birth_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>current_district_cleaned</name>
+        <rename>current_district_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>current_state_cleaned</name>
+        <rename>current_state_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>is_working_cleaned</name>
+        <rename>is_working_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>workplace_cleaned</name>
+        <rename>workplace_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>semester_cleaned</name>
+        <rename>semester_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>hobby_1_cleaned</name>
+        <rename>hobby_1_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>hobby_2_cleaned</name>
+        <rename>hobby_2_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>hobby_3_cleaned</name>
+        <rename>hobby_3_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>number_of_residents_cleaned</name>
+        <rename>number_of_residents_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>favorite_course_1_cleaned</name>
+        <rename>favorite_course_1_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>favorite_course_2_cleaned</name>
+        <rename>favorite_course_2_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>favorite_course_3_cleaned</name>
+        <rename>favorite_course_3_cleaned</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Salida a CSV</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <schema_definition/>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>${DATA_DIR}/DatosExamen-limpio-hop</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>Nombre</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>35</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>edad_cleaned</name>
+        <type>Integer</type>
+        <format>####0;-####0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>3</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>state_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>promedio_cleaned</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>date_of_birth_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>current_district_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>current_state_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Trabajo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>semester_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Ingenieria</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Dato</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Artista_Favorito</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>hobby_1_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>hobby_2_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>hobby_3_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>number_of_residents_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>favorite_course_1_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>favorite_course_2_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>favorite_course_3_cleaned</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <roundingType>half_even</roundingType>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>

@@ -11,6 +11,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
     networks:
       - db_network
     restart: unless-stopped
@@ -26,6 +27,7 @@ services:
       - "5500:5500"
     volumes:
       - oracle_data:/opt/oracle/oradata
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
     networks:
       - db_network
     restart: unless-stopped
@@ -45,6 +47,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
     networks:
       - db_network
     restart: unless-stopped
@@ -70,6 +73,7 @@ services:
       - airflow_dags:/opt/airflow/dags
       - airflow_logs:/opt/airflow/logs
       - airflow_plugins:/opt/airflow/plugins
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
     networks:
       - db_network
     restart: unless-stopped
