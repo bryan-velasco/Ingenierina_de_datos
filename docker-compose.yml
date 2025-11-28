@@ -1,0 +1,138 @@
+services:
+  # PostgreSQL
+  postgresql:
+    image: postgres:13
+    container_name: postgresql_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: postgres_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sq
+    networks:
+      - db_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "admin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Oracle Database 23c
+  oracle:
+    image: container-registry.oracle.com/database/free:23.3.0.0
+    container_name: oracle_db
+    environment:
+      ORACLE_PWD: admin123
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
+    networks:
+      - db_network
+    restart: unless-stopped
+    shm_size: 2g
+    mem_limit: 2g
+
+  # MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin123
+      MYSQL_DATABASE: mysql_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
+    networks:
+      - db_network
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+
+  # Apache Airflow
+  airflow-webserver:
+    image: apache/airflow:2.7.1
+    container_name: airflow_webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgresql:5432/airflow_db
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
+      _AIRFLOW_DB_UPGRADE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: admin123
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - airflow_logs:/opt/airflow/logs
+      - airflow_plugins:/opt/airflow/plugins
+      # AGREGA ESTA LÍNEA (Igual que en el webserver):
+      - /home/usuario/Desktop/Ingenierina_de_datos:/shared_data
+      # 🚨 NECESARIO: Mapeo del Driver JDBC de PostgreSQL
+      - ./pt2-incidencia-delictiva/02-spark/postgresql-42.7.3.jar:/usr/local/airflow/postgresql-42.7.3.jar:ro
+    user: "${AIRFLOW_UID:-50000}:0"
+    networks:
+      - db_network
+    restart: unless-stopped
+    depends_on:
+      - postgresql
+    command: >
+      bash -c "
+        airflow db init &&
+        airflow users create --username admin --password admin123 --firstname Admin --lastname User --role Admin --email admin@example.com &&
+        airflow webserver
+      "
+
+  airflow-scheduler:
+    image: apache/airflow:2.7.1
+    container_name: airflow_scheduler
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgresql:5432/airflow_db
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - airflow_logs:/opt/airflow/logs
+      - airflow_plugins:/opt/airflow/plugins
+      # AGREGA ESTA LÍNEA (Igual que en el webserver):
+      - /home/usuario/Desktop/Ingenierina_de_datos:/shared_data
+      # 🚨 NECESARIO: Mapeo del Driver JDBC de PostgreSQL
+      - ./pt2-incidencia-delictiva/02-spark/postgresql-42.7.3.jar:/usr/local/airflow/postgresql-42.7.3.jar:ro
+    user: "${AIRFLOW_UID:-50000}:0"
+    networks:
+      - db_network
+    restart: unless-stopped
+    depends_on:
+      - postgresql
+      - airflow-webserver
+    command: airflow scheduler
+
+volumes:
+  postgres_data:
+  oracle_data:
+  mysql_data:
+  airflow_dags:
+  airflow_logs:
+  airflow_plugins:
+
+networks:
+  db_network:
+    driver: bridge
+
+secrets:
+  oracle_registry_password:
+    file: ./oracle_password.txt
