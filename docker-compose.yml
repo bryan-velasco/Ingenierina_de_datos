@@ -55,9 +55,11 @@ services:
 
   # Apache Airflow
   airflow-webserver:
-    image: apache/airflow:2.7.1
+    build: .
     container_name: airflow_webserver
     environment:
+      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64/
+      SPARK_HOME: /opt/spark
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgresql:5432/airflow_db
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
@@ -70,7 +72,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - airflow_dags:/opt/airflow/dags
+      - ~/Desktop/Ingenierina_de_datos/pt2-incidencia-delictiva/05-dags:/opt/airflow/dags
       - airflow_logs:/opt/airflow/logs
       - airflow_plugins:/opt/airflow/plugins
       - ~/Desktop/Ingenierina_de_datos:/shared_data
@@ -87,17 +89,20 @@ services:
       "
 
   airflow-scheduler:
-    image: apache/airflow:2.7.1
+    build: .
     container_name: airflow_scheduler
     environment:
+      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64/
+      SPARK_HOME: /opt/spark
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgresql:5432/airflow_db
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     volumes:
-      - airflow_dags:/opt/airflow/dags
+      - ~/Desktop/Ingenierina_de_datos/pt2-incidencia-delictiva/05-dags:/opt/airflow/dags
       - airflow_logs:/opt/airflow/logs
       - airflow_plugins:/opt/airflow/plugins
+      - ~/Desktop/Ingenierina_de_datos:/shared_data
     networks:
       - db_network
     restart: unless-stopped
