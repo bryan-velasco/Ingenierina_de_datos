@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.2.1">
+  <diagram name="Página-1" id="GbVHyz6_taX-vXy4X0E1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zZ3PovFwBATozQgBRbYE-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=15;" value="&lt;font style=&quot;font-size: 28px;&quot;&gt;Calidad de Datos Alumnos&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="386" x="221" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Limpieza con Python" vertex="1">
+          <mxGeometry height="150" width="770" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-16" edge="1" parent="zZ3PovFwBATozQgBRbYE-2" source="zZ3PovFwBATozQgBRbYE-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-7" parent="zZ3PovFwBATozQgBRbYE-2" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#FF3333;shape=mxgraph.azure.file" value=".csv (sucio)" vertex="1">
+          <mxGeometry height="50" width="47" x="20" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-8" parent="zZ3PovFwBATozQgBRbYE-2" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Ionicons_Fill_Vol_2-2187/logo-python-593.svg" value="Limpieza con Python&lt;div&gt;(pandas)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="65" x="140" y="36.5" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-18" edge="1" parent="zZ3PovFwBATozQgBRbYE-2" source="zZ3PovFwBATozQgBRbYE-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-10" parent="zZ3PovFwBATozQgBRbYE-2" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#66CC00;shape=mxgraph.azure.file" value=".csv (limpio)" vertex="1">
+          <mxGeometry height="50" width="47" x="280" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-19" edge="1" parent="zZ3PovFwBATozQgBRbYE-2" source="zZ3PovFwBATozQgBRbYE-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-11" parent="zZ3PovFwBATozQgBRbYE-2" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Ionicons_Fill_Vol_2-2187/logo-python-593.svg" value="Lectura con Python&lt;div&gt;(pandas)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="65" x="392.5" y="36.5" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-20" edge="1" parent="zZ3PovFwBATozQgBRbYE-2" source="zZ3PovFwBATozQgBRbYE-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-12" parent="zZ3PovFwBATozQgBRbYE-2" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Ionicons_Fill_Vol_2-2187/logo-python-593.svg" value="Escritura con Python&lt;div&gt;(sqlalchemy)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="65" x="540" y="36.5" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-13" parent="zZ3PovFwBATozQgBRbYE-2" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" value="Escritura en BD&lt;br&gt;(PostgreSQL)" vertex="1">
+          <mxGeometry height="64" width="48" x="680" y="37" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-17" edge="1" parent="zZ3PovFwBATozQgBRbYE-2" source="zZ3PovFwBATozQgBRbYE-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-3" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Limpieza con Apache Hop" vertex="1">
+          <mxGeometry height="150" width="490" x="169" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-44" edge="1" parent="zZ3PovFwBATozQgBRbYE-3" source="zZ3PovFwBATozQgBRbYE-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="zZ3PovFwBATozQgBRbYE-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-42" parent="zZ3PovFwBATozQgBRbYE-3" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#FF3333;shape=mxgraph.azure.file" value=".csv (sucio)" vertex="1">
+          <mxGeometry height="50" width="47" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-49" edge="1" parent="zZ3PovFwBATozQgBRbYE-3" source="zZ3PovFwBATozQgBRbYE-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="zZ3PovFwBATozQgBRbYE-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-43" parent="zZ3PovFwBATozQgBRbYE-3" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.apache;aspect=fixed;" value="&lt;span style=&quot;text-align: left; text-wrap-mode: wrap;&quot;&gt;Carga en&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; text-wrap-mode: wrap;&quot;&gt;Apache&lt;/span&gt;&lt;span style=&quot;text-align: left; text-wrap-mode: wrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;Hop&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="67.6" width="33.8" x="150" y="31.200000000000045" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-48" parent="zZ3PovFwBATozQgBRbYE-3" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Ionicons_Fill_Vol_2-2187/logo-javascript-559.svg" value="Limpieza en Hop&lt;div&gt;con JS&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-50" parent="zZ3PovFwBATozQgBRbYE-3" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#66CC00;shape=mxgraph.azure.file" value=".csv (limpio)" vertex="1">
+          <mxGeometry height="50" width="47" x="410" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-51" edge="1" parent="zZ3PovFwBATozQgBRbYE-3" source="zZ3PovFwBATozQgBRbYE-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="zZ3PovFwBATozQgBRbYE-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-4" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Limpieza con MySQL" vertex="1">
+          <mxGeometry height="135" width="520" x="154" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-34" edge="1" parent="zZ3PovFwBATozQgBRbYE-4" source="zZ3PovFwBATozQgBRbYE-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-32" parent="zZ3PovFwBATozQgBRbYE-4" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#FF3333;shape=mxgraph.azure.file" value=".csv (sucio)" vertex="1">
+          <mxGeometry height="50" width="47" x="19" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-38" edge="1" parent="zZ3PovFwBATozQgBRbYE-4" source="zZ3PovFwBATozQgBRbYE-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="zZ3PovFwBATozQgBRbYE-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-33" parent="zZ3PovFwBATozQgBRbYE-4" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_MySQL_Server.svg;" value="INSERT&#39;s en SQL" vertex="1">
+          <mxGeometry height="64" width="48" x="140" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-40" edge="1" parent="zZ3PovFwBATozQgBRbYE-4" source="zZ3PovFwBATozQgBRbYE-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="zZ3PovFwBATozQgBRbYE-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-35" parent="zZ3PovFwBATozQgBRbYE-4" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/SQL_Server.svg;" value="Procesamiento en SQL" vertex="1">
+          <mxGeometry height="68" width="68" x="280" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-39" parent="zZ3PovFwBATozQgBRbYE-4" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_MySQL_Server.svg;imageBackground=default;" value="SELECT (limpio)" vertex="1">
+          <mxGeometry height="64" width="48" x="430" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-5" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Limpieza con Spark" vertex="1">
+          <mxGeometry height="160" width="520" x="154" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-24" edge="1" parent="zZ3PovFwBATozQgBRbYE-5" source="zZ3PovFwBATozQgBRbYE-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-25" parent="zZ3PovFwBATozQgBRbYE-5" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#FF3333;shape=mxgraph.azure.file" value=".csv (sucio)" vertex="1">
+          <mxGeometry height="50" width="47" x="19" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-31" edge="1" parent="zZ3PovFwBATozQgBRbYE-5" source="zZ3PovFwBATozQgBRbYE-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-26" parent="zZ3PovFwBATozQgBRbYE-5" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Ionicons_Fill_Vol_2-2187/logo-python-593.svg" value="Limpieza con Python&lt;div&gt;(PySpark)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="65" x="139" y="32.5" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-27" parent="zZ3PovFwBATozQgBRbYE-5" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#66CC00;shape=mxgraph.azure.file" value=".parquet (limpio)" vertex="1">
+          <mxGeometry height="50" width="47" x="420" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-28" edge="1" parent="zZ3PovFwBATozQgBRbYE-5" source="zZ3PovFwBATozQgBRbYE-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=1;" target="zZ3PovFwBATozQgBRbYE-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="66.3" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zZ3PovFwBATozQgBRbYE-30" parent="zZ3PovFwBATozQgBRbYE-5" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.apache;aspect=fixed;" value="&lt;span style=&quot;text-align: left; text-wrap-mode: wrap;&quot;&gt;Procesamiento&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; text-wrap-mode: wrap;&quot;&gt;con&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; text-wrap-mode: wrap;&quot;&gt;Apache&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left; text-wrap-mode: wrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Spark&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="67.6" width="33.8" x="300" y="31.2" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
