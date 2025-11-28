@@ -5,9 +5,9 @@ from pyspark.sql.window import Window
 
 BASE_PATH = '/shared_data/pt2-incidencia-delictiva/02-spark/' 
 JAR_NAME = 'postgresql-42.7.3.jar'
+JAR_PATH = BASE_PATH + JAR_NAME # 👈 Agrega esta línea para definir la ruta completa
 
-# Configuración
-INPUT_CLEAN_FILE = 'dataset_modificado' # Leemos la carpeta generada antes
+INPUT_CLEAN_FILE = BASE_PATH + 'dataset_modificado'
 
 DB_CONFIG = {
     "url": "jdbc:postgresql://postgresql:5432/incidencias_spark",
@@ -27,6 +27,9 @@ CATALOG_MAP = {
 def execute_jdbc_statement(spark, sql_query):
     """Ejecuta SQL directo (TRUNCATE, DROP, etc)"""
     try:
+        # 🔑 FIX: Cargar el driver de forma explícita en la JVM
+        spark._sc._gateway.jvm.java.lang.Class.forName(DB_CONFIG["driver"]) 
+        
         driver_manager = spark._sc._gateway.jvm.java.sql.DriverManager
         con = driver_manager.getConnection(
             DB_CONFIG["url"], DB_CONFIG["user"], DB_CONFIG["password"]
@@ -47,7 +50,6 @@ def upload_process():
     spark = SparkSession.builder \
         .appName("ETL_Paso2_Carga") \
         .config("spark.driver.extraClassPath", DRIVER_PATH) \
-        .config("spark.executor.extraClassPath", DRIVER_PATH) \
         .getOrCreate()
     
     spark.sparkContext.setLogLevel("WARN")

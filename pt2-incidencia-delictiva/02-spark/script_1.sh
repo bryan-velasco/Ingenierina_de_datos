@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# 🚨 CAMBIO DE ESTRATEGIA: NO USAR spark-submit
-# Usar el interprete de Python dentro del Venv directamente
-VENV_PYTHON="./venv_etl/bin/python"
+# 🚨 FIX: Usamos la ruta ABSOLUTA para el intérprete de Python del Venv.
+VENV_PYTHON="/shared_data/pt2-incidencia-delictiva/02-spark/venv_etl/bin/python"
 
 echo "Iniciando proceso de limpieza de datos"
 
