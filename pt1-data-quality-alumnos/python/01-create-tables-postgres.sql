@@ -1,4 +1,11 @@
 \set AUTOCOMMIT on
+
+\connect postgres;
+
+-- Eliminar la base si existe
+DROP DATABASE IF EXISTS data_quality;
+
+
 CREATE DATABASE data_quality WITH OWNER = admin ENCODING 'UTF8' TEMPLATE template1;
 
 -- Cambiar automáticamente a la nueva base
