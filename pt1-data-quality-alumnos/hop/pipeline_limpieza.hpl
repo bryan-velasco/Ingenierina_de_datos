@@ -47,7 +47,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>${DATA_DIR}/DatosExamen.csv</filename>
+    <filename>/home/proyectoingdatos/Desktop/Ingenierina_de_datos/pt1-data-quality-alumnos/data-sets/DatosExamen.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1070,7 +1070,7 @@ var favorite_course_3_cleaned = utils.courses.normalizeCourse(favs[2]);
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>${DATA_DIR}/DatosExamen-limpio-hop</name>
+      <name>/home/proyectoingdatos/Desktop/Ingenierina_de_datos/pt1-data-quality-alumnos/data-sets/DatosExamen-limpio-hop</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>Y</do_not_open_new_file_init>
       <extention>csv</extention>

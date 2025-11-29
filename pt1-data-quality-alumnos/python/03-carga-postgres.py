@@ -1,7 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 
-df = pd.read_csv('../data-sets/DatosExamen-limpio-python-script.csv.csv')
+df = pd.read_csv('../data-sets/DatosExamen-limpio-python-script.csv')
 
 course_list = pd.unique(df[['favorite_course_1', 'favorite_course_2', 
                                  'favorite_course_3']].values.ravel())
