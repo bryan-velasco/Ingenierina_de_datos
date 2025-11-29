@@ -342,7 +342,7 @@ delete from modalidad;</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/home/proyectoingdatos/Desktop/Ingenierina_de_datos/data_sets/INM_estatal_jul25.csv</filename>
+    <filename>/home/proyectoingdatos/Desktop/Ingenierina_de_datos/pt2-incidencia-delictiva/data-sets/INM_estatal_jul25.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
